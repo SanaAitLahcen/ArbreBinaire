@@ -20,7 +20,7 @@ public:
 	ArbreB* getFgh();
 	int getVal();
 	void InsertArbB(int val);
-	bool SupprimerNoeudClassique(int val);
+	bool SupprimerNoeud(int val);
 	ArbreB* RechercheDsArbre(int);
 	void ParcourBFS();
 	ArbreB* RechercheDsArbreBFS(int val);
