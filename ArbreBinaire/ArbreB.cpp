@@ -22,7 +22,7 @@ int ArbreB::getVal()
 }
 
 
-//InsÈrer dans une arbre binaire
+//Ins√©rer dans une arbre binaire
 void ArbreB::InsertArbB(int val)
 {
 
@@ -42,30 +42,30 @@ void ArbreB::InsertArbB(int val)
     
 }
 
-bool ArbreB::SupprimerNoeudClassique(int val)
+bool ArbreB::SupprimerNoeud(int val)
 {
     if (this == nullptr) return false;
 
     queue<ArbreB*> file;
     file.push(this);
 
-    ArbreB* noeudCible = nullptr; // Núud ‡ supprimer
-    ArbreB* dernierNoeud = nullptr; // Dernier núud rencontrÈ
-    ArbreB* parentDernierNoeud = nullptr; // Parent du dernier núud
+    ArbreB* noeudCible = nullptr; // N≈ìud √† supprimer
+    ArbreB* dernierNoeud = nullptr; // Dernier n≈ìud rencontr√©
+    ArbreB* parentDernierNoeud = nullptr; // Parent du dernier n≈ìud
 
-    // Parcours BFS pour localiser le núud ‡ supprimer et le dernier núud
+    // Parcours BFS pour localiser le n≈ìud √† supprimer et le dernier n≈ìud
     while (!file.empty()) 
     {
         ArbreB* noeud = file.front();
         file.pop();
 
-        // Identifier le núud ‡ supprimer
+        // Identifier le n≈ìud √† supprimer
         if (noeud->getVal() == val)
         {
             noeudCible = noeud;
         }
 
-        // Identifier le dernier núud rencontrÈ et son parent
+        // Identifier le dernier n≈ìud rencontr√© et son parent
         if (noeud->getFgh())
         {
             parentDernierNoeud = noeud;
@@ -77,20 +77,20 @@ bool ArbreB::SupprimerNoeudClassique(int val)
             file.push(noeud->getFdt());
         }
 
-        dernierNoeud = noeud; // Mettre ‡ jour le dernier núud
+        dernierNoeud = noeud; // Mettre √† jour le dernier n≈ìud
     }
 
-    // Si le núud ‡ supprimer n'a pas ÈtÈ trouvÈ
+    // Si le n≈ìud √† supprimer n'a pas √©t√© trouv√©
     if (!noeudCible) 
     {
-        cout << "Valeur " << val << " non trouvÈe dans l'arbre." << endl;
+        cout << "Valeur " << val << " non trouv√©e dans l'arbre." << endl;
         return false;
     }
 
-    // Remplacer la valeur du núud ‡ supprimer par celle du dernier núud
+    // Remplacer la valeur du n≈ìud √† supprimer par celle du dernier n≈ìud
     noeudCible->value = dernierNoeud->value;
 
-    // Supprimer le dernier núud
+    // Supprimer le dernier n≈ìud
     if (parentDernierNoeud)
     {
         if (parentDernierNoeud->getFgh() == dernierNoeud)
@@ -106,7 +106,7 @@ bool ArbreB::SupprimerNoeudClassique(int val)
     }
     else
     {
-        // Cas particulier : si l'arbre ne contient qu'un seul núud
+        // Cas particulier : si l'arbre ne contient qu'un seul n≈ìud
         delete this;
     }
 
