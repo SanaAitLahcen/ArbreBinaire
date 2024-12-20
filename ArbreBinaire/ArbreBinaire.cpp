@@ -29,8 +29,8 @@ int main()
     cout << "Arbre avant suppression : ";
     B->ParcourBFS();
 
-    B->SupprimerNoeudClassique(18);
-    cout << "Arbre après suppression : ";
+    B->SupprimerNoeud(18);
+    cout << "Arbre aprÃ¨s suppression : ";
     B->ParcourBFS();
 
    
